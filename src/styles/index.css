@@ -23,9 +23,23 @@ html {
 }
 
 .bg-main-gradient {
-    @apply bg-gradient-to-tl from-purple-400 to-blue-500 backdrop-blur-lg;
+    @apply bg-gradient-to-tl from-purple-400 to-blue-500 backdrop-blur-lg overflow-hidden;
     background-size: 140% 140%;
     animation: gradient 5s ease infinite;
+}
+
+.bg-main-gradient::before,
+.bg-main-gradient::after {
+    content: "";
+    @apply border-x w-2 h-16 absolute transition-all;
+}
+
+.bg-main-gradient::before {
+    @apply left-2 -top-6 rotate-45;
+}
+
+.bg-main-gradient::after {
+    @apply right-2 -bottom-6 rotate-45;
 }
 
 @keyframes gradient {
@@ -62,6 +76,81 @@ h6 {
     @apply transition-all;
 }
 
-p {
-    @apply text-lg;
+h2 {
+    @apply text-4xl;
+}
+
+p,
+ul {
+    @apply text-xl;
+}
+
+b,
+h2 {
+    @apply text-orange-200 font-bold;
+}
+
+ul {
+    @apply ml-8 mt-2;
+}
+
+ul li {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li:before {
+    content: "";
+    position: absolute;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    width: 10px;
+    height: 10px;
+    top: calc(50% - 4px);
+    left: -20px;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+section,
+.section-box {
+    @apply border px-6 pt-6 pb-6 rounded-tl-2xl rounded-br-2xl w-fit backdrop-blur-sm overflow-hidden flex flex-col gap-8;
+}
+
+section::before,
+.section-box::before,
+section::after,
+.section-box::after {
+    content: "";
+    @apply border-x w-2 h-16 absolute transition-all;
+}
+
+section::before,
+.section-box::before {
+    @apply left-2 -bottom-6 -rotate-45;
+}
+
+section::after,
+.section-box::after {
+    @apply right-2 -top-6 -rotate-45;
+}
+
+section:hover::before,
+.section-box:hover::before,
+section:hover::after,
+.section-box:hover::after {
+    @apply bg-white;
+}
+
+section:hover::before,
+.section-box:hover::before {
+    @apply -bottom-4;
+}
+
+section:hover::after,
+.section-box:hover::after {
+    @apply right-4;
 }

@@ -7,7 +7,7 @@ const Footer = () => {
     const isHome = asPath === "/";
 
     return (
-        <footer className="flex justify-center gap-4 mx-8 border-t p-4 items-center">
+        <footer className="flex justify-center gap-4 mx-16 border-t p-4 items-center">
             <Link
                 href="/"
                 aria-disabled={isHome}
