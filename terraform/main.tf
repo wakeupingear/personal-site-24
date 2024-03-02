@@ -5,14 +5,22 @@ provider "aws" {
 
 terraform {
   required_version = ">= 0.12.0"
+  required_providers {
+    local = {
+      source = "hashicorp/local"
+    }
+  }
 }
 
 data "aws_vpc" "default" {
   default = true
 }
 
-data "aws_subnet_ids" "all" {
-  vpc_id = data.aws_vpc.default.id
+data "aws_subnets" "subnets" {
+  filter {
+    name = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
 }
 
 # ECR repository for site
