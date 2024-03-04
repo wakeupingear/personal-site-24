@@ -1,4 +1,5 @@
 import React from "react";
+import ListDropdown from "~components/inputs/ListDropdown";
 import Layout from "~components/misc/layout";
 
 export default function index() {
@@ -19,23 +20,28 @@ export default function index() {
                 <p>plus some writing, speaking, acting, mixing, and sleeping</p>
                 <div className="flex flex-col">
                     <p>Here's the highlights</p>
-                    <ul>
-                        <li>
-                            Built websites for <b>50 million+</b> Monthly Active
-                            Users
-                        </li>
-                        <li>
-                            Shipped <b>10+ games</b> to Steam + Mobile + PC
-                        </li>
-                        <li>
-                            Prototyped <b>AI, ML, and XR software</b> for NASA +
-                            USC ICT
-                        </li>
-                        <li>
-                            Wrote and spoke about <b>queer storytelling</b> at
-                            GDC
-                        </li>
-                    </ul>
+                    <ListDropdown
+                        items={[
+                            [
+                                <>
+                                    Built websites for <b>50 million+</b>{" "}
+                                    Monthly Active Users
+                                </>,
+                                [<>bloomberg.com</>, <>thewerecleaner.co</>],
+                            ],
+                            <>
+                                Shipped <b>10+ games</b> to Steam + Mobile + PC
+                            </>,
+                            <>
+                                Prototyped <b>AI, ML, and XR software</b> for
+                                NASA + USC ICT
+                            </>,
+                            <>
+                                Wrote and spoke about <b>queer storytelling</b>{" "}
+                                at GDC
+                            </>,
+                        ]}
+                    />
                 </div>
                 <p>
                     reach me at <b>abbysfarhat at gmail</b>

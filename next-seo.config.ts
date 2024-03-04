@@ -1,7 +1,8 @@
 import { DefaultSeoProps } from "next-seo";
 
-const description = "Host your second brain with NextJS";
-// See https://www.npmjs.com/package/next-seo for more options
+const description =
+    "Hey! I'm Abby, a Designer, Engineer, Entrepreneur, and Artist. I build fun, pretty, and crazy things.";
+
 const config: DefaultSeoProps = {
     titleTemplate: "%s | Abby Farhat",
     defaultTitle: "Abby Farhat",
