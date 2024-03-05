@@ -1,5 +1,5 @@
-import Author from '../../../interfaces/author';
-import DateFormatter from '../misc/date-formatter';
+import Author from "../../../interfaces/author";
+import DateFormatter from "../misc/date-formatter";
 
 type Props = {
     author?: Author;
@@ -33,7 +33,7 @@ const PostMeta = ({ author, date }: Props) => {
                 <div>
                     {author && (
                         <>
-                            <span className="text-gray-600">By </span>
+                            <span>By </span>
                             <a
                                 className="font-medium hover:underline"
                                 href="#0"
@@ -42,11 +42,9 @@ const PostMeta = ({ author, date }: Props) => {
                             </a>
                         </>
                     )}
-                    {author && date && (
-                        <span className="text-gray-600"> · </span>
-                    )}
+                    {author && date && <span> · </span>}
                     {date && (
-                        <span className="text-gray-600">
+                        <span>
                             <DateFormatter dateString={date} />
                         </span>
                     )}

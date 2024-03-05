@@ -22,21 +22,26 @@ const Header = () => {
 
     return (
         <header className={clsx("w-fit z-30 py-8 px-4 md:px-16 relative")}>
-            <h1
-                className={clsx("md:-mb-5", {
-                    "text-[5rem]": isHome,
-                    "text-4xl": !isHome,
+            <h3
+                className={clsx({
+                    "md:-mb-5 text-[5rem]": isHome,
+                    "text-2xl": !isHome,
                 })}
             >
                 abby farhat
-            </h1>
-            <div className="flex gap-4 items-center text-3xl">
+            </h3>
+            <div
+                className={clsx("flex gap-4 items-center lowercase", {
+                    "text-3xl": isHome,
+                    "text-sm": !isHome,
+                })}
+            >
                 <SocialLinks />
                 <Link
                     href={RESUME_SWE}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-2xl sm:ml-auto"
+                    className={clsx("sm:ml-auto", { "text-2xl": isHome })}
                 >
                     Resume
                 </Link>

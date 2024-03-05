@@ -21,8 +21,9 @@ html {
     color: white;
 }
 
-body {
-    @apply font-text;
+body,
+p {
+    @apply font-text relative;
 }
 
 ::selection {
@@ -66,7 +67,7 @@ a:hover::after,
 }
 
 .bg-main-gradient {
-    @apply bg-gradient-to-tl from-purple-400 to-blue-600 backdrop-blur-lg;
+    @apply bg-gradient-to-tl from-purple-400 to-blue-600 min-h-screen h-full;
     background-size: 140% 140%;
     animation: gradient 5s ease infinite;
 }
@@ -90,10 +91,7 @@ a:hover::after,
     );
     background-size: 40px 40px;
     background-position: 0px 0px;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
+    @apply absolute overflow-hidden min-h-screen h-full w-full;
 }
 
 #bg-grid::before,
@@ -108,6 +106,12 @@ a:hover::after,
 
 #bg-grid::after {
     @apply right-2 -bottom-6 rotate-45;
+}
+
+h1,
+h2,
+time {
+    @apply lowercase;
 }
 
 h1,
@@ -143,6 +147,7 @@ ul {
 }
 
 b,
+strong,
 h2 {
     @apply text-orange-200 font-bold;
 }
