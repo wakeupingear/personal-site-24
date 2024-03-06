@@ -67,7 +67,7 @@ a:hover::after,
 }
 
 .bg-main-gradient {
-    @apply bg-gradient-to-tl from-purple-400 to-blue-600 min-h-screen h-full;
+    @apply bg-gradient-to-tl from-purple-400 to-blue-600 min-h-screen;
     background-size: 140% 140%;
     animation: gradient 5s ease infinite;
 }
@@ -186,7 +186,7 @@ ul li.list-sub-closed {
 
 section,
 .section-box {
-    @apply border p-4 md:p-6 rounded-tl-2xl rounded-br-2xl w-fit backdrop-blur-sm overflow-hidden flex flex-col gap-4 md:gap-8;
+    @apply border p-4 md:p-6 rounded-tl-2xl rounded-br-2xl w-fit backdrop-blur-sm overflow-hidden flex flex-col gap-4 md:gap-8 transition-all;
 }
 
 section::before,

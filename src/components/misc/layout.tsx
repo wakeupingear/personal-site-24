@@ -3,6 +3,7 @@ import Footer from "./footer";
 import Header from "./header";
 import clsx from "clsx";
 import { Josefin_Sans, Lato } from "next/font/google";
+import { m } from "framer-motion";
 
 const headerFont = Josefin_Sans({
     subsets: ["latin"],
@@ -47,7 +48,14 @@ const Layout = ({
                     "gap-8": gap,
                 })}
             >
-                {isSection ? <section>{children}</section> : children}
+                <m.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ y: 30, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                    {isSection ? <section>{children}</section> : children}
+                </m.div>
             </main>
             <Footer />
         </div>

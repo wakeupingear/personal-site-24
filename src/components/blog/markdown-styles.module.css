@@ -258,6 +258,11 @@
     border-bottom: 1px solid hsla(210, 18%, 87%, 1);
 }
 
+.markdown-body p ~ h2,
+.markdown-body h2 ~ h2 {
+    @apply mt-12;
+}
+
 .markdown-body h3 {
     font-weight: 600;
     font-size: 1.25rem;

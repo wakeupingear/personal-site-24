@@ -5,6 +5,7 @@ export default function Document() {
         <Html lang="en">
             <Head />
             <body className="bg-main-gradient">
+                <div className="bg-main-gradient fixed top-0 left-0 w-screen h-screen -z-10" />
                 <div id="bg-grid" className="pointer-events-none" />
                 <Main />
                 <NextScript />

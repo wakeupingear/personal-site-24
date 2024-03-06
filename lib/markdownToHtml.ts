@@ -1,21 +1,21 @@
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkGfm from 'remark-gfm';
-import remarkRehype from 'remark-rehype';
-import rehypeSanitize from 'rehype-sanitize';
-import rehypeRewrite from 'rehype-rewrite';
-import rehypeStringify from 'rehype-stringify';
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import rehypeSanitize from "rehype-sanitize";
+import rehypeRewrite from "rehype-rewrite";
+import rehypeStringify from "rehype-stringify";
 import {
     getLinksMapping,
     getPostBySlug,
     getSlugFromHref,
     updateMarkdownLinks,
-} from './api';
-import removeMd from 'remove-markdown';
-import { Element } from 'hast-util-select';
-import { renderToStaticMarkup } from 'react-dom/server';
-import NotePreview from '../src/components/misc/note-preview';
-import { fromHtml } from 'hast-util-from-html';
+} from "./api";
+import removeMd from "remove-markdown";
+import { Element } from "hast-util-select";
+import { renderToStaticMarkup } from "react-dom/server";
+import NotePreview from "../src/components/misc/note-preview";
+import { fromHtml } from "hast-util-from-html";
 
 export async function markdownToHtml(markdown: string, currSlug: string) {
     markdown = updateMarkdownLinks(markdown, currSlug);
@@ -24,7 +24,7 @@ export async function markdownToHtml(markdown: string, currSlug: string) {
     const links = getLinksMapping()[currSlug] as string[];
     const linkNodeMapping = new Map<string, Element>();
     for (const l of links) {
-        const post = getPostBySlug(l, ['title', 'content']);
+        const post = getPostBySlug(l, ["title", "content"]);
         const node = createNoteNode(post.title, post.content);
         linkNodeMapping[l] = node;
     }
@@ -35,7 +35,7 @@ export async function markdownToHtml(markdown: string, currSlug: string) {
         .use(remarkRehype)
         .use(rehypeSanitize)
         .use(rehypeRewrite, {
-            selector: 'a',
+            selector: "a",
             rewrite: async (node) =>
                 rewriteLinkNodes(node, linkNodeMapping, currSlug),
         })
@@ -63,15 +63,17 @@ export function createNoteNode(title: string, content: string) {
 }
 
 function rewriteLinkNodes(node, linkNodeMapping: Map<string, any>, currSlug) {
-    if (node.type === 'element' && node.tagName === 'a') {
+    if (node.type === "element" && node.tagName === "a") {
         const slug = getSlugFromHref(currSlug, node.properties.href);
         const noteCardNode = linkNodeMapping[slug];
         if (noteCardNode) {
             const anchorNode = { ...node };
-            anchorNode.properties.className = 'internal-link';
-            node.tagName = 'span';
-            node.properties = { className: 'internal-link-container' };
+            anchorNode.properties.className = "internal-link";
+            node.tagName = "span";
+            node.properties = { className: "internal-link-container" };
             node.children = [anchorNode, noteCardNode];
+        } else {
+            node.properties.target = "_blank";
         }
     }
 }
