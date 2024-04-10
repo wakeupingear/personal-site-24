@@ -1,9 +1,15 @@
+import { getAllPosts, getLinksMapping } from "lib/api";
 import Link from "next/link";
 import React from "react";
+import RecentPosts from "~components/blog/RecentPosts";
 import ListDropdown from "~components/inputs/ListDropdown";
 import Layout from "~components/misc/layout";
 
-export default function index() {
+interface Props {
+    hrefs: string[];
+}
+
+export default function index({ hrefs }: Props) {
     return (
         <Layout padSides gap className="lowercase">
             <section>
@@ -53,6 +59,17 @@ export default function index() {
                     </Link>
                 </p>
             </section>
+            {hrefs.length > 0 && <RecentPosts hrefs={hrefs} />}
         </Layout>
     );
+}
+
+export async function getStaticProps() {
+    const hrefs = getAllPosts(["slug", "content"]).map((i) => i.slug);
+
+    return {
+        props: {
+            hrefs,
+        },
+    };
 }

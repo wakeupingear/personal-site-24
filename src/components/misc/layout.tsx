@@ -44,7 +44,7 @@ const Layout = ({
         >
             <Header />
             <main
-                className={clsx("mt-8 grow min-h-0", {
+                className={clsx("mt-8 grow", {
                     "px-4 md:px-16": padSides,
                 })}
             >
@@ -53,6 +53,9 @@ const Layout = ({
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: 30, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className={clsx("flex flex-col", {
+                        "gap-8": gap,
+                    })}
                 >
                     {isSection ? <section>{children}</section> : children}
                 </m.div>

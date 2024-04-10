@@ -182,41 +182,42 @@ ul li.list-sub-closed {
 }
 
 section,
-.section-box {
+.section-box,
+.section-box-interactive {
     @apply border p-4 md:p-6 rounded-tl-2xl rounded-br-2xl w-fit backdrop-blur-sm overflow-hidden flex flex-col gap-4 md:gap-8 transition-all;
 }
 
 section::before,
 .section-box::before,
+.section-box-interactive::before,
 section::after,
-.section-box::after {
+.section-box::after,
+.section-box-interactive::after {
     content: "";
     @apply border-x w-2 h-16 absolute transition-all;
 }
 
 section::before,
-.section-box::before {
+.section-box::before,
+.section-box-interactive::before {
     @apply left-2 -bottom-6 -rotate-45;
 }
 
 section::after,
-.section-box::after {
+.section-box::after,
+.section-box-interactive::after {
     @apply right-2 -top-6 -rotate-45;
 }
 
-section:hover::before,
-.section-box:hover::before,
-section:hover::after,
-.section-box:hover::after {
+.section-box-interactive:hover::before,
+.section-box-interactive:hover::after {
     @apply bg-white;
 }
 
-section:hover::before,
-.section-box:hover::before {
+.section-box-interactive:hover::before {
     @apply -bottom-4;
 }
 
-section:hover::after,
-.section-box:hover::after {
+.section-box-interactive:hover::after {
     @apply right-4;
 }
