@@ -15,13 +15,28 @@ import {
 export default function SocialLinks() {
     return (
         <>
-            <Link href={INSTAGRAM_PROFILE} target="_blank" rel="author">
+            <Link
+                href={INSTAGRAM_PROFILE}
+                target="_blank"
+                rel="author"
+                className="clickableText"
+            >
                 <FontAwesomeIcon icon={faInstagram} />
             </Link>
-            <Link href={GITHUB_PROFILE} target="_blank" rel="author">
+            <Link
+                href={GITHUB_PROFILE}
+                target="_blank"
+                rel="author"
+                className="clickableText"
+            >
                 <FontAwesomeIcon icon={faGithub} />
             </Link>
-            <Link href={LINKEDIN_PROFILE} target="_blank" rel="author">
+            <Link
+                href={LINKEDIN_PROFILE}
+                target="_blank"
+                rel="author"
+                className="clickableText"
+            >
                 <FontAwesomeIcon icon={faLinkedin} />
             </Link>
         </>

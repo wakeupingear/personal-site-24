@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import ListDropdown from "~components/inputs/ListDropdown";
 import Layout from "~components/misc/layout";
@@ -45,6 +46,11 @@ export default function index() {
                 </div>
                 <p>
                     reach me at <b>abbysfarhat at gmail</b>
+                    <br />
+                    or{" "}
+                    <Link href="/meet" className="underline">
+                        schedule a chat
+                    </Link>
                 </p>
             </section>
         </Layout>

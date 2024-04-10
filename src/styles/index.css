@@ -39,14 +39,12 @@ b::-mos-selection {
     @apply text-white;
 }
 
-a,
 .clickableText {
     text-decoration: none;
     display: inline-block;
     position: relative;
 }
 
-a::after,
 .clickableText::after {
     @apply sm:content-[''];
     position: absolute;
@@ -60,7 +58,6 @@ a::after,
     transition: transform 0.25s ease-out;
 }
 
-a:hover::after,
 .clickableText:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;

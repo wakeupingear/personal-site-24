@@ -4,6 +4,7 @@ import Header from "./header";
 import clsx from "clsx";
 import { Josefin_Sans, Lato } from "next/font/google";
 import { m } from "framer-motion";
+import { useRouter } from "next/router";
 
 const headerFont = Josefin_Sans({
     subsets: ["latin"],
@@ -43,15 +44,14 @@ const Layout = ({
         >
             <Header />
             <main
-                className={clsx("grow flex flex-col", {
+                className={clsx("mt-8 grow min-h-0", {
                     "px-4 md:px-16": padSides,
-                    "gap-8": gap,
                 })}
             >
                 <m.div
-                    initial={{ y: 30, opacity: 0 }}
+                    initial={{ x: -30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    exit={{ y: 30, opacity: 0 }}
+                    exit={{ x: 30, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                     {isSection ? <section>{children}</section> : children}

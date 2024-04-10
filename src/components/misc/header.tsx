@@ -32,7 +32,13 @@ const Header = () => {
                     "text-2xl": !isHome,
                 })}
             >
-                abby farhat
+                {!isHome ? (
+                    <Link href="/" className="hover:cursor-pointer">
+                        abby farhat
+                    </Link>
+                ) : (
+                    "abby farhat"
+                )}
             </h3>
             <div
                 className={clsx(
@@ -48,7 +54,7 @@ const Header = () => {
                     href={RESUME_SWE}
                     target="_blank"
                     rel="noreferrer"
-                    className={clsx("transition-all duration-500 sm:ml-auto", {
+                    className={clsx("clickableText transition-all sm:ml-auto", {
                         "text-2xl": isHome,
                     })}
                 >
