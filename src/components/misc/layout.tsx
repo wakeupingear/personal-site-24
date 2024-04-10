@@ -20,6 +20,7 @@ const textFont = Lato({
 
 type Props = {
     children: React.ReactNode;
+    centered?: boolean;
     padSides?: boolean;
     gap?: boolean;
     className?: string;
@@ -28,6 +29,7 @@ type Props = {
 
 const Layout = ({
     children,
+    centered = false,
     padSides = false,
     gap = false,
     className,
@@ -46,6 +48,7 @@ const Layout = ({
             <main
                 className={clsx("mt-8 grow", {
                     "px-4 md:px-16": padSides,
+                    "flex flex-col items-center justify-center": centered,
                 })}
             >
                 <m.div

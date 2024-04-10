@@ -9,18 +9,26 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 type Props = {
     href: string;
     children?: React.ReactNode;
+    containerClassName?: string;
     className?: string;
 };
 
-const PreviewLink = ({ href, children, className }: Props) => {
+const PreviewLink = ({
+    href,
+    children,
+    containerClassName,
+    className,
+}: Props) => {
     const { data } = useSWR(`/api/post-preview/${href}`, fetcher);
     if (!data) return null;
 
     return (
-        <Link as={href} href="/[...slug]" className={clsx(className)}>
-            <p className="text-xl">{data.title}</p>
-            <DateFormatter dateString={data.date} />
-            {children}
+        <Link as={href} href="/[...slug]" className={containerClassName}>
+            <div className={clsx(className)}>
+                <p className="text-xl">{data.title}</p>
+                <DateFormatter dateString={data.date} />
+                {children}
+            </div>
         </Link>
     );
 };

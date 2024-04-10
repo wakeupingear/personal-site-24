@@ -8,9 +8,6 @@ export default function meet() {
             <div className="rounded-xl overflow-hidden">
                 <InlineWidget
                     url="https://calendly.com/abbysfarhat"
-                    pageSettings={{
-                        hideLandingPageDetails: true,
-                    }}
                     iframeTitle="Schedule a meeting with Abby Farhat"
                 />
             </div>
